@@ -1,2 +1,2 @@
 # Ecoleta
-Projeto desenvolvido pela empresa RocketSeat
+### Projeto desenvolvido pela empresa RocketSeat
