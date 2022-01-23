@@ -1,65 +1,35 @@
-<!DOCTYPE html>
-<html lang="pt_br" data-lt-installed="true">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+{% extends "layout.html" %}
+{% set bodyId = "page-search-results" %}
+{% block title %}
     <title>Resultado da pesquisa</title>
-
-    <link href="https://fonts.googleapis.com/css2?family=Roboto&family=Ubuntu:wght@700&display=swap" rel="stylesheet">
-
-    <link rel="stylesheet" href="/styles/main.css">
+{% endblock title %}
+{% block styles %}
     <link rel="stylesheet" href="/styles/search-results.css">
-    <link rel="stylesheet" href="/styles/responsive.css">
-
-</head>
-
-
-<body>
-
-    <div id="page-search-results">
-
-        <header>
-            <img src="/assets/logo.svg" alt="Logomarca">
-            <a href="/">
-                <span></span>
-                Voltar para home
-            </a>
-        </header>
-
+{% endblock styles %}
+    {% block content %}
+        {% include "partials/page-header.html" %}
         <main>
-            <h4>
-                <strong>2 pontos</strong> encontrados
-            </h4>
-
-            <div class="cards">
-                <div class="card">
-                    <img src="https://images.unsplash.com/photo-1528323273322-d81458248d40?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=929&q=80" alt="Colectoria">
-                    <h1>Colectoria</h1>
-                    <h3>Resíduos Eletrônicos, Lâmpadas</h3>
-                    <p>
-                        Rio do Sul, Santa Catarina <br/>
-                        Guilherme Gemballa, Jardim America <br/>
-                        Número 260
-
-                    </p>
-                </div>
-                <div class="card">
-                    <img src="https://images.unsplash.com/photo-1567393528677-d6adae7d4a0a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80" alt="Pappersider">
-                    <h1>Pappersider</h1>
-                    <h3>Papel, Papelao</h3>
-                    <p>
-                        Joinville, Santa Catarina <br/>
-                        Alvacir Jose, Aventureiro <br/>
-                        Número 260
-
-                    </p>
-                </div>
-            </div>
-        </main>
-
-    </div>
-
-</body>
-
-</html>
+            {% if total > 0 %}
+                <h4>
+                    <strong>{{ total }} pontos</strong>
+                    encontrados
+                </h4>
+                <div class="cards">
+                    {% for place in places %}
+                        <div class="card">
+                            <img src="{{ place.image }}" alt="{{ place.name }}">
+                                <h1>{{ place.name }}</h1>
+                                <h3>{{ place.items }}</h3>
+                                <p>
+                                    {{ place.city }}, {{ place.state }} <br/> {{ place.address }} <br/> {{ place.address2 }}
+                                </p>
+                            </div>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    <h4>
+                        <strong>Nenhum</strong>
+                        local encontrado</h4>
+                {% endif %}
+            </main>
+    {% endblock content %}
