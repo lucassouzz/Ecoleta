@@ -14,14 +14,14 @@ We use this technology:
 
 ### Below some images
 
-##### Home:
+#### Home:
 
 ![alt text](https://github.com/lucassouzz/Ecoleta/blob/main/readme_images/home.png?raw=true)
 
-##### Registration form:
+#### Registration form:
 ![alt text](https://github.com/lucassouzz/Ecoleta/blob/main/readme_images/form_1.png?raw=true)
 ![alt text](https://github.com/lucassouzz/Ecoleta/blob/main/readme_images/form_2.png?raw=true)
 
-##### List of results:
+#### List of results:
 
 ![alt text](https://github.com/lucassouzz/Ecoleta/blob/main/readme_images/search-result.png?raw=true)
